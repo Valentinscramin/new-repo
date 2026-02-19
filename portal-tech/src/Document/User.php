@@ -24,7 +24,7 @@ class User
     /** @ODM\Field(type="string") */
     private $role = 'USER';
 
-    /** @ODM\Field(type="date") */
+    /** @ODM\Field(type="date_immutable") */
     private $createdAt;
 
     public function __construct()

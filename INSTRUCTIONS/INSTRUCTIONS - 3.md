@@ -7,8 +7,8 @@ Criar layout Vue 3 baseado na imagem de referência fornecida.
 ---
 
 ## 1. Estrutura
-
-frontend/src:
+BACKEND EM PHP SYMFONY : PRODUCT_COMPARISON\portal-tech
+FRONTEND: PRODUCT_COMPARISON\portal-tech\frontend\src (PATH PRINCIPAL PARA CRIACAO DO VUE):
 - layouts
 - components
 - views

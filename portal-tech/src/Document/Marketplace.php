@@ -24,7 +24,7 @@ class Marketplace
     /** @ODM\Field(type="string", nullable=true) */
     private $logo;
 
-    /** @ODM\Field(type="date") */
+    /** @ODM\Field(type="date_immutable") */
     private $createdAt;
 
     public function __construct()

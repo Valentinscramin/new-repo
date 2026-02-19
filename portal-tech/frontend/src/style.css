@@ -1,33 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  --color-netflix-red: #E50914;
+  --color-netflix-red-dark: #B20710;
+  --color-netflix-black: #141414;
+  --color-netflix-black-light: #181818;
+  --color-netflix-gray-dark: #2F2F2F;
+  --color-netflix-gray-light: #B3B3B3;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #141414;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Netflix color variables */
+  --netflix-red: #E50914;
+  --netflix-red-dark: #B20710;
+  --netflix-black: #141414;
+  --netflix-black-light: #181818;
+  --netflix-gray-dark: #2F2F2F;
+  --netflix-gray-light: #B3B3B3;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #E50914;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #B20710;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #141414;
+  color: rgba(255,255,255,0.92);
 }
 
 h1 {
@@ -36,7 +55,7 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  border-radius: 4px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -44,14 +63,15 @@ button {
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: #E50914;
 }
 button:focus,
 button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  outline: 2px solid #E50914;
+  outline-offset: 2px;
 }
 
 .card {
@@ -59,10 +79,141 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+/* Custom scrollbar - Netflix style */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2F2F2F, #1a1a1a);
+  border-radius: 5px;
+  border: 2px solid #141414;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #E50914, #B20710);
+}
+
+/* hide scrollbar for horizontal carousels */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Netflix-style utilities */
+.netflix-card {
+  background-color: var(--netflix-black-light);
+  @apply rounded-xl overflow-hidden transition-all duration-300;
+}
+
+.netflix-card:hover {
+  @apply scale-110 z-10;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.netflix-hover {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.netflix-hover:hover {
+  @apply scale-105;
+}
+
+.glass-effect {
+  background: rgba(20, 20, 20, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.netflix-gradient {
+  background: linear-gradient(to bottom, transparent 0%, rgba(20, 20, 20, 0.7) 50%, rgba(20, 20, 20, 0.95) 100%);
+}
+
+.netflix-button-primary {
+  @apply bg-netflix-red hover:bg-netflix-red-dark text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105;
+}
+
+.netflix-button-secondary {
+  @apply bg-gray-600/70 hover:bg-gray-600/90 text-white font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg;
+}
+
+/* Icon animations */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Scrollbar improvements */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #141414;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2F2F2F, #1a1a1a);
+  border-radius: 5px;
+  border: 2px solid #141414;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #E50914, #B20710);
+}
+
+/* Neon / glow utilities (legacy) */
+.neon-glow {
+  box-shadow: 0 8px 32px rgba(16,185,129,0.12), 0 2px 8px rgba(16,185,129,0.06) inset;
+}
+.neon-text {
+  color: #34d399;
+  text-shadow: 0 6px 24px rgba(16,185,129,0.12);
+}
+.card-glass {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  backdrop-filter: blur(6px);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  @apply fixed inset-0 bg-black/75 z-50 flex items-center justify-center p-4;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Carousel scroll snap */
+.carousel-container {
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.carousel-item {
+  scroll-snap-align: start;
+}
+
+/* small responsive helpers */
+@media (max-width: 640px) {
+  .hero-padding { padding-top: 2.5rem; padding-bottom: 2.5rem; }
 }
 
 @media (prefers-color-scheme: light) {

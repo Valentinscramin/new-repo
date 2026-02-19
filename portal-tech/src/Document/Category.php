@@ -18,7 +18,7 @@ class Category
     /** @ODM\Field(type="string") */
     private $slug;
 
-    /** @ODM\Field(type="date") */
+    /** @ODM\Field(type="date_immutable") */
     private $createdAt;
 
     public function __construct()

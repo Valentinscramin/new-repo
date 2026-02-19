@@ -3,7 +3,8 @@
 
 Objetivo:
 CRUD completo usando MongoDB ODM.
-
+BACKEND EM PHP SYMFONY : PRODUCT_COMPARISON\portal-tech
+FRONTEND: PRODUCT_COMPARISON\portal-tech\frontend\src (PATH PRINCIPAL PARA CRIACAO DO VUE):
 ---
 
 ## 1. Proteção

@@ -22,6 +22,12 @@ class Product
     /** @ODM\Field(type="string", nullable=true) */
     private $description;
 
+    /** @ODM\Field(type="string", nullable=true) */
+    private $image;
+
+    /** @ODM\Field(type="float", nullable=true) */
+    private $rating;
+
     /** @ODM\EmbedMany(targetDocument=Specification::class) */
     private $specifications = [];
 
@@ -31,7 +37,7 @@ class Product
     /** @ODM\ReferenceOne(targetDocument=Supplier::class, storeAs="ref") */
     private $supplier;
 
-    /** @ODM\Field(type="date") */
+    /** @ODM\Field(type="date_immutable") */
     private $createdAt;
 
     public function __construct()
@@ -79,7 +85,9 @@ class Product
 
     public function getSpecifications(): array
     {
-        return $this->specifications;
+        return $this->specifications instanceof \Doctrine\Common\Collections\Collection
+            ? $this->specifications->toArray()
+            : $this->specifications;
     }
 
     public function addSpecification(Specification $spec): self
@@ -113,5 +121,27 @@ class Product
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+        return $this;
+    }
+
+    public function getRating(): ?float
+    {
+        return $this->rating;
+    }
+
+    public function setRating(?float $rating): self
+    {
+        $this->rating = $rating;
+        return $this;
     }
 }

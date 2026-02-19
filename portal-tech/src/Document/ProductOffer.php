@@ -24,7 +24,7 @@ class ProductOffer
     /** @ODM\Field(type="string") */
     private $affiliateLink;
 
-    /** @ODM\Field(type="date") */
+    /** @ODM\Field(type="date_immutable") */
     private $lastUpdatedAt;
 
     public function __construct()
