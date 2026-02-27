@@ -28,7 +28,7 @@
           v-for="(product, index) in products" 
           :key="product.id || index"
           class="flex-shrink-0 w-48 md:w-64 carousel-item snap-start"
-        >
+        style="margin: 20px;">
           <slot :product="product" :index="index">
             <!-- Default product card -->
             <div 

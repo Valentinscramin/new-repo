@@ -64,7 +64,7 @@
 
     <!-- Offers Modal -->
     <div v-if="showOffersModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" @click.self="closeOffersModal">
-      <div class="bg-gray-900 rounded-lg border border-gray-800 max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+      <div class="bg-gray-900 rounded-lg border border-gray-800 w-full max-h-[90vh] overflow-y-auto">
         <div class="sticky top-0 bg-gray-900 border-b border-gray-800 p-6 flex justify-between items-center">
           <h3 class="text-xl font-bold">Ofertas: {{ selectedProduct?.name }}</h3>
           <button @click="closeOffersModal" class="text-gray-400 hover:text-white text-2xl">&times;</button>

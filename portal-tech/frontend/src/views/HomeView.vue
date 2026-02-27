@@ -303,9 +303,9 @@
     </section>
 
     <!-- Where to Buy Section -->
-    <section id="offers" class="py-16 bg-netflix-black-light" style="margin-top: 20px;">
+    <section v-if="comparisonCount > 0" id="offers" class="py-16 bg-netflix-black-light">
       <div class="w-full flex justify-center">
-        <div class="max-w-5xl w-full px-4 md:px-8">
+        <div class="max-w-5xl w-full px-4 md:px-8" style="margin-bottom:20px;">
           <h2 class="text-3xl font-bold text-white mb-8 text-center" style="margin-bottom: 20px;">Onde Comprar Mais Barato</h2>
           
           <!-- Indicador do produto vencedor -->
